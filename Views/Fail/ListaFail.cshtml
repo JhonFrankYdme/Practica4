@@ -1,0 +1,38 @@
+@model List<Fail>
+
+@{
+    ViewData["Title"] = "Lista de Fails";
+}
+
+    <div class="text-center">
+        <h2 class="display-4">Fails Recientes</h2>
+
+        @if (Model.Count == 0)
+           {
+             <div class="position-relative">
+                <div class="text-center"><h3>¡Aún no ha registrado su primer fail, ingrese a la pestaña de registro!</h3></div>
+             </div>
+              
+          }    
+    </div>
+
+    <div class="container">
+        <div class="row">    
+          
+            @foreach (var fail in Model)
+            {
+                
+                <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <label style="text-align: center; font-weight: bold;">@fail.titulo</label><br>   
+                            <label>Subido por: @fail.nom_usuario</label><br>                        
+                        </div>
+                        <img src="@fail.url_imagen" class="card-img-top" width="150"px height="200"px>
+                    </div>
+
+                </div>
+
+            }
+        </div>
+    </div>
